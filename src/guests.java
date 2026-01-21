@@ -1,2 +1,2 @@
-public class guests
+public class guests{
 }
