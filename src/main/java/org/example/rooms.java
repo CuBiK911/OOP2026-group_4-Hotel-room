@@ -1,28 +1,44 @@
 package org.example;
-import edu.aitu.oop3.db.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-public class rooms {
-    private int id;
-    private String roomNumber;
-    private int capacity;
-    private double price;
 
-    public rooms(int id, String roomNumber, int capacity, double price) {
-        this.id = id;
-        this.roomNumber = roomNumber;
-        this.capacity = capacity;
-        this.price = price;
+public class rooms {
+
+    private int roomId;
+    private String roomNumber;
+    private String roomType;
+    private double pricePerNight;
+
+    public rooms() {
     }
 
-    public int getId() { return id; }
-    public String getRoomNumber() { return roomNumber; }
-    public int getCapacity() { return capacity; }
-    public double getPrice() { return price; }
+    public int getRoomId() {
+        return roomId;
+    }
 
+    public String getRoomNumber() {
+        return roomNumber;
+    }
 
+    public String getRoomType() {
+        return roomType;
+    }
 
+    public double getPricePerNight() {
+        return pricePerNight;
+    }
 
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public void setPricePerNight(double pricePerNight) {
+        this.pricePerNight = pricePerNight;
+    }
 }

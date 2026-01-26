@@ -1,25 +1,59 @@
 package org.example;
+
 import java.time.LocalDate;
+
 public class reservationss {
 
-        private int id;
-        private int guestId;
-        private int roomId;
-        private LocalDate startDate;
-        private LocalDate endDate;
-        private String status;
+    private int reservationId;
+    private guests guest;
+    private rooms room;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
 
-        public reservationss(int guestId, int roomId,
-                            LocalDate startDate, LocalDate endDate) {
-            this.guestId = guestId;
-            this.roomId = roomId;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.status = "ACTIVE";
-        }
-
-        public int getRoomId() { return roomId; }
-        public LocalDate getStartDate() { return startDate; }
-        public LocalDate getEndDate() { return endDate; }
+    public reservationss() {
     }
 
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public guests getGuest() {
+        return guest;
+    }
+
+    public rooms getRoom() {
+        return room;
+    }
+
+    public LocalDate getCheckIn() {
+        return checkIn;
+    }
+
+    public LocalDate getCheckOut() {
+        return checkOut;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
+
+    public void setGuest(guests guest) {
+        this.guest = guest;
+    }
+
+    public void setRoom(rooms room) {
+        this.room = room;
+    }
+
+    public void setCheckIn(LocalDate checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public void setCheckOut(LocalDate checkOut) {
+        this.checkOut = checkOut;
+    }
+
+    public int getRoomId() {
+        return room.getRoomId();
+    }
+}
