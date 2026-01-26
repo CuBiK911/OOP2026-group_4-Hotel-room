@@ -7,8 +7,7 @@ public class rooms {
     private String roomType;
     private double pricePerNight;
 
-    public rooms() {
-    }
+
 
     public int getRoomId() {
         return roomId;

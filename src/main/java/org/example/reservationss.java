@@ -7,9 +7,9 @@ public class reservationss {
     private int reservationId;
     private guests guest;
     private rooms room;
-    private LocalDate checkIn;
-    private LocalDate checkOut;
-
+    private  LocalDate checkIn;
+    private  LocalDate checkOut;
+    private String Status;
     public reservationss() {
     }
 
@@ -25,11 +25,11 @@ public class reservationss {
         return room;
     }
 
-    public LocalDate getCheckIn() {
+    public  LocalDate getCheckIn() {
         return checkIn;
     }
 
-    public LocalDate getCheckOut() {
+    public  LocalDate getCheckOut() {
         return checkOut;
     }
 
@@ -56,4 +56,9 @@ public class reservationss {
     public int getRoomId() {
         return room.getRoomId();
     }
+    public void setStatus(String Status) {
+        this.Status = Status;
+
+    }
+
 }

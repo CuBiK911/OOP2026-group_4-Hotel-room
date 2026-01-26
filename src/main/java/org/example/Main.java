@@ -9,24 +9,18 @@ import java.util.List;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-      /*  System.out.println("Connecting to Supabase...");
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            System.out.println("Connected successfully!");
-            String sql = "SELECT CURRENT_TIMESTAMP";
-            try (PreparedStatement stmt = connection.prepareStatement(sql);
-                 ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    System.out.println("Database time: " + rs.getTimestamp(1));
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("Error while connecting to database:");
-            e.printStackTrace();
-        }*/
+  /*
+        Connection connection = DatabaseConnection.getConnection();
+
+        guests guestRepo1 = new GuestRepositoryImpl(connection);
+        RoomRepository roomRepo1 = new RoomRepositoryImpl(connection);
+        ReservationRepository reservationRepo1 = new ReservationRepositoryImpl(connection);
+        PaymentRepository paymentRepo1 = new PaymentRepositoryImpl(connection);
+*/
         RoomRepository roomRepo = new RoomRepository() {
             List<rooms> Room = new ArrayList<>();
 
-            /*    {
+              {
                     Room.add(new rooms() {{
                         setRoomId(1);
                         setRoomNumber("101");
@@ -40,7 +34,7 @@ public class Main {
                         setPricePerNight(80.0);
                     }});
                 }
-           */ // missing setters in rooms class
+
             @Override
             public List<rooms> findAvailableRooms(LocalDate checkIn, LocalDate checkOut) {
                 //  all rooms are always available
@@ -48,11 +42,13 @@ public class Main {
             }
         };
 
-       /* ReservationRepository reservationRepo = new ReservationRepository() {
+        ReservationRepository reservationRepo = new ReservationRepository() {
             @Override
             public void save(reservationss reservation) {
-                System.out.println("Reservation saved: " + reservation.getRoomId().getRoomNumber()
-                        + " for guest " + reservation.getGuest().getName());
+                System.out.println("Reservation saved: " +
+                        reservation.getRoom().getRoomNumber() +
+                        " for guest " +
+                        reservation.getGuest().getName());
             }
             @Override
             public reservationss findById(int id) {
@@ -64,7 +60,7 @@ public class Main {
             public void cancel(int reservationId) {
                 System.out.println("Reservation " + reservationId + " cancelled");
             }
-        };*/ // missing getRoomNumber and getGuest in reservationss class
+        }; // missing getRoomNumber and getGuest in reservationss class
 
         PaymentRepository paymentRepo = new PaymentRepository() {
             @Override
@@ -75,15 +71,15 @@ public class Main {
         //functions(services) initialize
         RoomAvailabilityService availabilityService = new RoomAvailabilityService(roomRepo);
         PaymentService paymentService = new PaymentService(paymentRepo);
-       /* ReservationService reservationService = new ReservationService(
+        ReservationService reservationService = new ReservationService(
                 reservationRepo, availabilityService, paymentService
-        );*/ // just uncomment when ready
+        ); // just uncomment when ready
 
         // --- Test data ---
         guests guest = new guests();
         guest.setGuestId(1);
         guest.setName("John Doe");
-     /*
+
         rooms room = new rooms();
         room.setRoomId(1);
         room.setRoomNumber("101");
@@ -101,27 +97,27 @@ public class Main {
         payment.setReservation(reservation);
         payment.setAmount(room.getPricePerNight() * 2); // 2 nights, rooms class
 
-*/   // Setters and getPricePerNight missing
+   // Setters and getPricePerNight missing
 
-    /*
+
         System.out.println("Available rooms:");
         List<rooms> availableRooms = availabilityService.searchAvailableRooms(
-                reservationss.getCheckIn(),
-                reservationss.getCheckOut()
+                reservation.getCheckIn(),
+                reservation.getCheckOut()
         );
         for (rooms r : availableRooms) {
             System.out.println("- " + r.getRoomNumber() + " (" + r.getRoomType() + ")");
         }
-*/ //getters and method missing
-  /*
+ //getters and method missing
+
         try {
             reservationService.createReservation(reservation, payment);
         } catch (Exception e) {
             System.out.println("Error creating reservation: " + e.getMessage());
         }
 
-        // Cancel reservation
+
         reservationService.cancelReservation(reservation.getReservationId());
-    *///methods missing
+
     }
 }
