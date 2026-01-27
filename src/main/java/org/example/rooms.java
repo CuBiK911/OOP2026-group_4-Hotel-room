@@ -2,8 +2,8 @@ package org.example;
 
 public class rooms {
 
-    private int roomId;
-    private String roomNumber;
+    private int RoomId;
+    private int RoomNumber;
     private String roomType;
     private double pricePerNight;
 
@@ -11,11 +11,11 @@ public class rooms {
     }
 
     public int getRoomId() {
-        return roomId;
+        return RoomId;
     }
 
-    public String getRoomNumber() {
-        return roomNumber;
+    public int getRoomNumber() {
+        return RoomNumber;
     }
 
     public String getRoomType() {
@@ -27,11 +27,11 @@ public class rooms {
     }
 
     public void setRoomId(int roomId) {
-        this.roomId = roomId;
+        this.RoomId = roomId;
     }
 
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setRoomNumber(int roomNumber) {
+        this.RoomNumber = roomNumber;
     }
 
     public void setRoomType(String roomType) {
