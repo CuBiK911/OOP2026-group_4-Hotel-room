@@ -27,7 +27,7 @@ public class ReservationService {
     public void createReservation(reservationss reservation, payments payment) {
 
         List<rooms> availableRooms = availabilityService.searchAvailableRooms(
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
+
                 reservation.getCheckIn(),
                 reservation.getCheckOut()
         );
@@ -37,12 +37,11 @@ public class ReservationService {
         }
 
         reservation.setStatus("CONFIRMED");
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
+
         reservationRepository.save(reservation);
         paymentService.processPayment(payment);
     }
 
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
     public void cancelReservation(int reservationId) {
         reservationRepository.cancel(reservationId);
     }

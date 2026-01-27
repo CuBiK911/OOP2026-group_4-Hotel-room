@@ -49,7 +49,7 @@ public class Main {
                         reservation.getRoom().getRoomNumber() +
                         " for guest " +
                         reservation.getGuest().getName());
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
+
             }
 
             @Override
@@ -63,7 +63,6 @@ public class Main {
                 System.out.println("Reservation " + reservationId + " cancelled");
             }
         }; // missing getRoomNumber and getGuest in reservationss class
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
 
         PaymentRepository paymentRepo = new PaymentRepository() {
             @Override
@@ -78,7 +77,6 @@ public class Main {
                 reservationRepo, availabilityService, paymentService
 
         ); // just uncomment when ready
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
 
         // --- Test data ---
         guests guest = new guests();
@@ -107,7 +105,6 @@ public class Main {
 
         System.out.println("Available rooms:");
         List<rooms> availableRooms = availabilityService.searchAvailableRooms(
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
                 reservation.getCheckIn(),
                 reservation.getCheckOut()
         );
@@ -117,7 +114,6 @@ public class Main {
         }
 
  //getters and method missing
->>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
 
         try {
             reservationService.createReservation(reservation, payment);
