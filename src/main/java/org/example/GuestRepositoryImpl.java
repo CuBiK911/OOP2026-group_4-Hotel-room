@@ -5,15 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class GuestRepositoryImpl  {
-/*
-    private final Connection connection;
+
+   /* private final Connection connection;
 
     public GuestRepositoryImpl(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public void save(Guest guest) {
+    public void save(guests guest) {
         String sql = "INSERT INTO guests (name, email, phone) VALUES (?, ?, ?)";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {

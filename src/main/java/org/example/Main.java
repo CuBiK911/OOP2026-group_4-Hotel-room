@@ -9,20 +9,14 @@ import java.util.List;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-      /*  System.out.println("Connecting to Supabase...");
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            System.out.println("Connected successfully!");
-            String sql = "SELECT CURRENT_TIMESTAMP";
-            try (PreparedStatement stmt = connection.prepareStatement(sql);
-                 ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    System.out.println("Database time: " + rs.getTimestamp(1));
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("Error while connecting to database:");
-            e.printStackTrace();
-        }*/
+  /*
+        Connection connection = DatabaseConnection.getConnection();
+
+        guests guestRepo1 = new GuestRepositoryImpl(connection);
+        RoomRepository roomRepo1 = new RoomRepositoryImpl(connection);
+        ReservationRepository reservationRepo1 = new ReservationRepositoryImpl(connection);
+        PaymentRepository paymentRepo1 = new PaymentRepositoryImpl(connection);
+*/
         RoomRepository roomRepo = new RoomRepository() {
             List<rooms> Room = new ArrayList<>();
 
@@ -51,9 +45,11 @@ public class Main {
         ReservationRepository reservationRepo = new ReservationRepository() {
             @Override
             public void save(reservationss reservation) {
-                System.out.println("Reservation saved: "
-                        + reservation.getRoom().getRoomNumber()
-                        + " for guest " + reservation.getGuest().getName());
+                System.out.println("Reservation saved: " +
+                        reservation.getRoom().getRoomNumber() +
+                        " for guest " +
+                        reservation.getGuest().getName());
+>>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
             }
 
             @Override
@@ -66,7 +62,8 @@ public class Main {
             public void cancel(int reservationId) {
                 System.out.println("Reservation " + reservationId + " cancelled");
             }
-        };
+        }; // missing getRoomNumber and getGuest in reservationss class
+>>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
 
         PaymentRepository paymentRepo = new PaymentRepository() {
             @Override
@@ -79,7 +76,9 @@ public class Main {
         PaymentService paymentService = new PaymentService(paymentRepo);
         ReservationService reservationService = new ReservationService(
                 reservationRepo, availabilityService, paymentService
-        );
+
+        ); // just uncomment when ready
+>>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
 
         // --- Test data ---
         guests guest = new guests();
@@ -103,11 +102,12 @@ public class Main {
         payment.setReservation(reservation);
         payment.setAmount(room.getPricePerNight() * 2); // 2 nights, rooms class
 
-
+   // Setters and getPricePerNight missing
 
 
         System.out.println("Available rooms:");
-        List<rooms> availableRooms = availabilityService.findAvailableRooms(
+        List<rooms> availableRooms = availabilityService.searchAvailableRooms(
+>>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
                 reservation.getCheckIn(),
                 reservation.getCheckOut()
         );
@@ -116,6 +116,8 @@ public class Main {
             System.out.println("- " + r.getRoomNumber() + " (" + r.getRoomType() + ")");
         }
 
+ //getters and method missing
+>>>>>>> ab4b9cf03325a174a0e1da48c0147ee21bb0b84b
 
         try {
             reservationService.createReservation(reservation, payment);
@@ -123,7 +125,7 @@ public class Main {
             System.out.println("Error creating reservation: " + e.getMessage());
         }
 
-        // Cancel reservation
+
         reservationService.cancelReservation(reservation.getReservationId());
 
     }
