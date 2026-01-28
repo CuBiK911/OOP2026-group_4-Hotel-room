@@ -5,15 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Date;
 
-public class ReservationRepositoryImpl {
+public class ReservationRepositoryImpl implements ReservationRepository {
 
-    /* private final Connection connection;
+    private final Connection connection;
 
     public ReservationRepositoryImpl(Connection connection) {
         this.connection = connection;
     }
-   @Override
-   public ReservationRepository findById(int id){return null;}
+
+
+
     @Override
     public void save(reservationss reservation) {
         String sql = "INSERT INTO reservations (guest_id, room_id, check_in, check_out, status) " +
@@ -32,7 +33,7 @@ public class ReservationRepositoryImpl {
     }
 
     @Override
-    public void delete(int reservationId) {
+    public void cancel(int reservationId) {
         String sql = "DELETE FROM reservations WHERE reservation_id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -41,5 +42,5 @@ public class ReservationRepositoryImpl {
         } catch (SQLException e) {
             throw new RuntimeException("Failed to delete reservation", e);
         }
-    }*/
+    }
 }

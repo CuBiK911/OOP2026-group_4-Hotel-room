@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class GuestRepositoryImpl  {
+public class GuestRepositoryImpl implements GuestRepository  {
 
-   /* private final Connection connection;
+    private final Connection connection;
 
     public GuestRepositoryImpl(Connection connection) {
         this.connection = connection;
@@ -24,5 +24,5 @@ public class GuestRepositoryImpl  {
         } catch (SQLException e) {
             throw new RuntimeException("Failed to save guest", e);
         }
-    }*/
+    }
 }

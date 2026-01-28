@@ -5,9 +5,9 @@ import java.util.List;
 
 public class RoomAvailabilityService {
 
-    private final RoomRepository roomRepository;
+    private final RoomRepoService roomRepository;
 
-    public RoomAvailabilityService(RoomRepository roomRepository) {
+    public RoomAvailabilityService(RoomRepoService roomRepository) {
         this.roomRepository = roomRepository;
     }
 

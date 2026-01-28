@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.math.BigDecimal;
 
-public class RoomRepositoryImpl {
+public class RoomRepositoryImpl implements RoomRepository {
 
-   /* private final Connection connection;
+    private final Connection connection;
 
     public RoomRepositoryImpl(Connection connection) {
         this.connection = connection;
@@ -18,12 +18,12 @@ public class RoomRepositoryImpl {
         String sql = "INSERT INTO rooms (room_number, room_type, price_per_night) VALUES (?, ?, ?)";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, room.getRoomNumber());
+            ps.setInt(1, room.getRoomNumber());
             ps.setString(2, room.getRoomType());
             ps.setBigDecimal(3, BigDecimal.valueOf(room.getPricePerNight()));
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Failed to save room", e);
         }
-    }*/
+    }
 }

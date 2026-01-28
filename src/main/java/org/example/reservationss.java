@@ -32,6 +32,9 @@ public class reservationss {
     public  LocalDate getCheckOut() {
         return checkOut;
     }
+    public  String getStatus() {
+        return Status;
+    }
 
     public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
